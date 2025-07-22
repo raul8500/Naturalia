@@ -1,0 +1,323 @@
+<div class="bg-amber-50 py-8">
+  <div class="container mx-auto px-4">
+    <!-- Pestañas -->
+    <div class="flex flex-wrap justify-center space-x-2 mb-8">
+      <button 
+        *ngFor="let tab of tabs" 
+        (click)="setActiveTab(tab.id)"
+        [class]="activeTab === tab.id ? 'bg-green-700 text-white' : 'bg-amber-600 text-white'"
+        class="px-6 py-3 rounded-t-lg font-semibold hover:bg-green-800 transition-colors">
+        {{ tab.label }}
+      </button>
+    </div>
+
+    <!-- Contenido de las pestañas -->
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      
+      <!-- Pestaña INICIO -->
+      <div *ngIf="activeTab === 'inicio'" class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-3xl font-bold text-green-800 mb-4">🌳 Sobre NATURALIA</h2>
+          <p class="text-gray-700 mb-4">
+            NATURALIA es un área natural protegida que combina la conservación de especies con la educación ambiental. 
+            Nuestro parque alberga más de 200 especies de animales en espacios que simulan su hábitat natural.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="text-center p-4 bg-green-100 rounded-lg">
+              <div class="text-3xl mb-2">🦁</div>
+              <div class="font-semibold text-green-800">200+</div>
+              <div class="text-sm text-gray-600">Especies Animales</div>
+            </div>
+            <div class="text-center p-4 bg-amber-100 rounded-lg">
+              <div class="text-3xl mb-2">🌳</div>
+              <div class="font-semibold text-amber-800">50+</div>
+              <div class="text-sm text-gray-600">Hectáreas</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-green-200 to-amber-200 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-800 mb-4">🎯 Misión</h3>
+          <p class="text-gray-700 mb-4">
+            Conservar la biodiversidad local y promover la educación ambiental a través de experiencias 
+            únicas y cercanas con la naturaleza.
+          </p>
+          <h3 class="text-xl font-bold text-green-800 mb-4">🌍 Visión</h3>
+          <p class="text-gray-700">
+            Ser un referente en la conservación y educación ambiental, inspirando a las futuras generaciones 
+            a proteger nuestro planeta.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pestaña ANIMALES -->
+      <div *ngIf="activeTab === 'animales'" class="space-y-8">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">🦁 Nuestros Animales</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Mamíferos -->
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-green-800 mb-4">🦒 Mamíferos</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Leones africanos</li>
+              <li>• Tigres de bengala</li>
+              <li>• Elefantes asiáticos</li>
+              <li>• Jirafas</li>
+              <li>• Rinocerontes</li>
+              <li>• Cebras</li>
+            </ul>
+          </div>
+
+          <!-- Aves -->
+          <div class="bg-amber-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-amber-800 mb-4">🦅 Aves</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Águilas reales</li>
+              <li>• Guacamayos</li>
+              <li>• Tucanes</li>
+              <li>• Flamencos</li>
+              <li>• Búhos</li>
+              <li>• Loros</li>
+            </ul>
+          </div>
+
+          <!-- Reptiles -->
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-green-800 mb-4">🐍 Reptiles</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Cocodrilos</li>
+              <li>• Serpientes pitón</li>
+              <li>• Tortugas gigantes</li>
+              <li>• Iguanas</li>
+              <li>• Lagartos</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-800 mb-4">🌱 Programas de Conservación</h3>
+          <p class="text-gray-700 mb-4">
+            Participamos activamente en programas de conservación de especies en peligro de extinción, 
+            colaborando con organizaciones internacionales para proteger la biodiversidad.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-blue-800">15</div>
+              <div class="text-sm text-gray-600">Especies Protegidas</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-blue-800">95%</div>
+              <div class="text-sm text-gray-600">Tasa de Supervivencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pestaña ACTIVIDADES -->
+      <div *ngIf="activeTab === 'actividades'" class="space-y-8">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">🎯 Actividades y Programas</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Tours Guiados -->
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-green-800 mb-4">🚶 Tours Guiados</h3>
+            <ul class="space-y-3 text-gray-700">
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">🦁</span>
+                <div>
+                  <strong>Tour de Mamíferos:</strong> 2 horas
+                </div>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">🦅</span>
+                <div>
+                  <strong>Tour de Aves:</strong> 1.5 horas
+                </div>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">🌅</span>
+                <div>
+                  <strong>Tour Nocturno:</strong> 3 horas
+                </div>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-green-100 rounded">
+              <strong>Horarios:</strong> 9:00 AM, 11:00 AM, 2:00 PM, 4:00 PM
+            </div>
+          </div>
+
+          <!-- Programas Educativos -->
+          <div class="bg-amber-50 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-amber-800 mb-4">🎓 Programas Educativos</h3>
+            <ul class="space-y-3 text-gray-700">
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">👶</span>
+                <div>
+                  <strong>Pequeños Exploradores:</strong> 3-6 años
+                </div>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">🧒</span>
+                <div>
+                  <strong>Jóvenes Naturalistas:</strong> 7-12 años
+                </div>
+              </li>
+              <li class="flex items-center">
+                <span class="text-2xl mr-3">👨‍🎓</span>
+                <div>
+                  <strong>Programa Universitario:</strong> 18+ años
+                </div>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-amber-100 rounded">
+              <strong>Reservas:</strong> Mínimo 48 horas de anticipación
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiencias Especiales -->
+        <div class="bg-gradient-to-r from-green-100 to-amber-100 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-green-800 mb-4">⭐ Experiencias Especiales</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="text-center p-4 bg-white rounded-lg">
+              <div class="text-3xl mb-2">🦁</div>
+              <h4 class="font-bold text-green-800">Alimentación de Leones</h4>
+              <p class="text-sm text-gray-600">Vive la experiencia de alimentar a nuestros leones</p>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg">
+              <div class="text-3xl mb-2">🦒</div>
+              <h4 class="font-bold text-green-800">Paseo con Jirafas</h4>
+              <p class="text-sm text-gray-600">Camina junto a nuestras amigables jirafas</p>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg">
+              <div class="text-3xl mb-2">📸</div>
+              <h4 class="font-bold text-green-800">Fotografía Profesional</h4>
+              <p class="text-sm text-gray-600">Sesiones fotográficas con animales</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pestaña CONTACTO -->
+      <div *ngIf="activeTab === 'contacto'" class="space-y-8">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">📞 Contacto</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Información de Contacto -->
+          <div class="space-y-6">
+            <div class="bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-green-800 mb-4">📍 Ubicación</h3>
+              <p class="text-gray-700 mb-2">
+                <strong>Dirección:</strong><br>
+                Carretera Federal 150, Km 45<br>
+                Municipio de Naturalia<br>
+                Estado de México, México
+              </p>
+              <div class="mt-4">
+                <strong>Coordenadas GPS:</strong><br>
+                19.4326° N, 99.1332° W
+              </div>
+            </div>
+
+            <div class="bg-amber-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📞 Información de Contacto</h3>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <span class="text-2xl mr-3">📧</span>
+                  <div>
+                    <strong>Email:</strong><br>
+                    info&#64;naturalia.com
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-2xl mr-3">📱</span>
+                  <div>
+                    <strong>Teléfono:</strong><br>
+                    (555) 123-4567
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-2xl mr-3">📞</span>
+                  <div>
+                    <strong>WhatsApp:</strong><br>
+                    +52 55 1234-5678
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Horarios y Precios -->
+          <div class="space-y-6">
+            <div class="bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">🕒 Horarios</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between">
+                  <span>Lunes a Viernes:</span>
+                  <span class="font-semibold">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Sábados y Domingos:</span>
+                  <span class="font-semibold">8:00 AM - 7:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Días Festivos:</span>
+                  <span class="font-semibold">8:00 AM - 8:00 PM</span>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-blue-100 rounded">
+                <strong>Última entrada:</strong> 1 hora antes del cierre
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold text-green-800 mb-4">💰 Precios</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between">
+                  <span>Adultos:</span>
+                  <span class="font-semibold">$250 MXN</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Niños (3-12 años):</span>
+                  <span class="font-semibold">$150 MXN</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Niños menores de 3:</span>
+                  <span class="font-semibold">Gratis</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Adultos mayores (65+):</span>
+                  <span class="font-semibold">$180 MXN</span>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-green-100 rounded">
+                <strong>Descuentos:</strong> Grupos de 10+ personas
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <div class="bg-gradient-to-r from-green-100 to-amber-100 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-green-800 mb-4">✉️ Envíanos un Mensaje</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Nombre completo" class="p-3 border rounded-lg">
+            <input type="email" placeholder="Email" class="p-3 border rounded-lg">
+            <input type="tel" placeholder="Teléfono" class="p-3 border rounded-lg">
+            <select class="p-3 border rounded-lg">
+              <option>Selecciona un tema</option>
+              <option>Información general</option>
+              <option>Reservas</option>
+              <option>Programas educativos</option>
+              <option>Voluntariado</option>
+              <option>Otro</option>
+            </select>
+            <textarea placeholder="Tu mensaje" rows="4" class="p-3 border rounded-lg md:col-span-2"></textarea>
+            <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors md:col-span-2">
+              Enviar Mensaje
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
